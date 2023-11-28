@@ -6,15 +6,6 @@
         "config": {
           "maxLambdaSize": "15mb",
           "runtime": "python3.9"
-        },
-        "hooks": {
-          "preBuild": {
-            "commands": [
-              "mkdir -p /vercel/path0",
-              "pip install --upgrade pip",
-              "pip install -r /vercel/path0/requirements.txt"
-            ]
-          }
         }
       }
     ],
