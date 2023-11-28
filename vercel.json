@@ -1,15 +1,32 @@
 
-
 {
-    "builds": [{
+    "version": 2,
+    "builds": [
+      {
         "src": "deepfake/django_app/project_settings/wsgi.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-    }],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "deepfake/django_app/project_settings/wsgi.py"
+        "config": {
+          "maxLambdaSize": "15mb",
+          "runtime": "python3.9",
+          "build": {
+            "env": {
+              "PIP_TARGET": "/vercel/path0",
+              "PIP_CACHE_DIR": "/vercel/path0/pip-cache"
+            },
+            "functions": {
+              "api/**/*.js": {
+                "runtime": "python3.9"
+              }
+            }
+          }
         }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "deepfake/django_app/project_settings/wsgi.py"
+      }
     ]
-}
+  }
+  
