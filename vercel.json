@@ -1,24 +1,21 @@
-
 {
-    "version": 2,
     "builds": [
       {
         "src": "deepfake/django_app/project_settings/wsgi.py",
         "use": "@vercel/python",
         "config": {
           "maxLambdaSize": "15mb",
-          "runtime": "python3.9",
-          "build": {
-            "env": {
-              "PIP_TARGET": "/vercel/path0",
-              "PIP_CACHE_DIR": "/vercel/path0/pip-cache"
-            },
-            "functions": {
-              "api/**/*.js": {
-                "runtime": "python3.9"
-              }
-            }
-          }
+          "runtime": "python3.9"
+        },
+        "build": {
+          "env": {
+            "PIP_TARGET": "/vercel/path0",
+            "PIP_CACHE_DIR": "/vercel/path0/pip-cache"
+          },
+          "commands": [
+            "sudo apt-get install build-essential python3-dev",
+            "pip3 install -r /vercel/path0/requirements.txt"
+          ]
         }
       }
     ],
@@ -29,4 +26,5 @@
       }
     ]
   }
+  
   
