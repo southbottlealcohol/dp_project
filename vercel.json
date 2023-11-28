@@ -7,13 +7,13 @@
           "maxLambdaSize": "15mb",
           "runtime": "python3.9"
         },
-        "env": {
-          "PIP_TARGET": "/vercel/path0",
-          "PIP_CACHE_DIR": "/vercel/path0/pip-cache"
-        },
         "hooks": {
           "preBuild": {
-            "commands": ["pip install -r /vercel/path0/requirements.txt"]
+            "commands": [
+              "mkdir -p /vercel/path0",
+              "pip install --upgrade pip",
+              "pip install -r /vercel/path0/requirements.txt"
+            ]
           }
         }
       }
@@ -23,7 +23,10 @@
         "src": "/(.*)",
         "dest": "deepfake/django_app/project_settings/wsgi.py"
       }
-    ]
+    ],
+    "env": {
+      "PIP_TARGET": "/vercel/path0",
+      "PIP_CACHE_DIR": "/vercel/path0/pip-cache"
+    }
   }
-  
   
