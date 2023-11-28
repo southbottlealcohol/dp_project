@@ -2,14 +2,14 @@
 
 {
     "builds": [{
-        "src": "dp_project/django_app/ml_app/project_settings/wsgi.py",
+        "src": "/django_app/ml_app/project_settings/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     }],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "dp_project/django_app/ml_app/project_settings/wsgi.py"
+            "dest": "/django_app/ml_app/project_settings/wsgi.py"
         }
     ]
 }
